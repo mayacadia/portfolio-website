@@ -80,7 +80,7 @@
       "description": "Website for automating invoice generation and management of LiLo, an employee time management app, subscriptions.",
       "detailedDescription": "Used Node.js and Express to create a backend service that automates invoice creation based on user activity and subscription plans.",
       "category": "web",
-      "image": "/lilo_logo.jpg",
+      "image": "/lilo_logo.png",
       "liveUrl": "#",
       "sourceUrl": "#"
     },{
@@ -105,6 +105,22 @@
       "detailedDescription": "Developed the diagrams and detailed documentation for the project.",
       "category": "web",
       "image": "/valsafe.png",
+      "liveUrl": "#",
+      "sourceUrl": "#"
+    },{
+      "title": "GoHighLevel Workflows",
+      "description": "Complex automation workflows for various clients using GoHighLevel.",
+      "detailedDescription": "Managed campaigns and automations using different features of GoHighLevel to improve client business processes and lead generation.",
+      "category": "web",
+      "image": "/highlevel.png",
+      "liveUrl": "#",
+      "sourceUrl": "#"
+    },{
+      "title": "n8n Automations",
+      "description": "Created n8n automation workflows to manage middleware and backend processes for clients.",
+      "detailedDescription": "Integrated external APIs and services using n8n to automate repetitive tasks and streamline operations for businesses.",
+      "category": "web",
+      "image": "/n8n.png",
       "liveUrl": "#",
       "sourceUrl": "#"
     }
