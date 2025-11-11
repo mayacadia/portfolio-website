@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer'
 import { FiBook } from 'react-icons/fi'
 
 const About = ({ data }) => {
-  const { about, education } = data
+  const { about, education, educationExperience } = data
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -72,29 +72,19 @@ const About = ({ data }) => {
               </motion.div>
             ))}
 
-            {/* Additional Info Card */}
+            {/* Education Experience Card */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               className="card p-6 bg-gradient-to-br from-primary-500/10 to-purple-500/10"
             >
-              <h4 className="text-lg font-bold mb-3">What I Bring</h4>
+              <h4 className="text-lg font-bold mb-3">Experience During Education</h4>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-2">✓</span>
-                  <span>Strong problem-solving and analytical skills</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-2">✓</span>
-                  <span>Excellent communication and teamwork</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-2">✓</span>
-                  <span>Passion for continuous learning</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary-500 mr-2">✓</span>
-                  <span>Attention to detail and code quality</span>
-                </li>
+                {educationExperience.map((exp, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-primary-500 mr-2">✓</span>
+                    <span>{exp}</span>
+                  </li>
+                ))}
               </ul>
             </motion.div>
           </motion.div>

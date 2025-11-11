@@ -36,6 +36,13 @@
     }
   ],
 
+  "educationExperience": [
+    "Participated in coding competitions both inside and outside to sharpen problem-solving skills",
+    "Led and collaborated on team projects using Agile methodologies and version control",
+    "Built several academic projects including web applications and automation tools",
+    "Completed internship at Filmetrics Corporation, gaining hands-on backend development experience"
+  ],
+
   "skills": [
     { "name": "JavaScript / TypeScript", "level": 90 },
     { "name": "React / Next.js", "level": 85 },
@@ -55,7 +62,7 @@
       "description": "A tool to analyze employee shifts and generate payroll automatically using AI.",
       "detailedDescription": "Developed with Python and integrated with prediction models to process shift data and produce accurate payroll reports.",
       "category": "web",
-      "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=60&auto=format&fit=crop",
+      "image": "/ai-assisted-shift.jpg",
       "liveUrl": "#"
      
     },
@@ -64,7 +71,7 @@
       "description": "A landing page for a travel agency showcasing tours and booking options.",
       "detailedDescription": "Built with WordPress and Elementor, featuring responsive design and SEO optimization.",
       "category": "web",
-      "image": "blob:https://www.facebook.com/66eb7b3e-5713-4461-be26-ab33774583b6",
+      "image": "/wgy-website.png",
       "liveUrl": "#",
       "sourceUrl": "#"
     },
@@ -72,16 +79,24 @@
       "title": "LiLo Invoice Automation",
       "description": "Website for automating invoice generation and management of LiLo, an employee time management app, subscriptions.",
       "detailedDescription": "Used Node.js and Express to create a backend service that automates invoice creation based on user activity and subscription plans.",
-      "category": "mobile",
-      "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200&q=60&auto=format&fit=crop",
+      "category": "web",
+      "image": "/lilo_logo.jpg",
       "liveUrl": "#",
       "sourceUrl": "#"
     },{
       "title": "Philippine Post Office ID Application Dashboard",
       "description": "Website for monitoring applications for Postal IDs in the Philippines.",
       "detailedDescription": "Developed the backend with Node.js and Express and PostgreSQL to handle data analytics and status updates for users applying for Postal IDs.",
-      "category": "mobile",
-      "image": "blob:https://www.facebook.com/f7e159e9-60e6-4ef5-a56b-75d8f4eae3ea",
+      "category": "web",
+      "image": "/phlpost-logo.jpg",
+      "liveUrl": "#",
+      "sourceUrl": "#"
+    },{
+      "title": "Organic Pup Inc Website",
+      "description": "An ongoing e-commerce website for a dog food startup",
+      "detailedDescription": "Developed with WordPresss and Shopify for easy designing and updating, as well as responsive design.",
+      "category": "web",
+      "image": "/organic-pup.png",
       "liveUrl": "#",
       "sourceUrl": "#"
     }
