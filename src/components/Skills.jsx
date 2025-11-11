@@ -30,19 +30,29 @@ const Skills = ({ data }) => {
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="space-y-2"
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="space-y-2 p-4 rounded-lg bg-white dark:bg-dark-lighter border border-transparent hover:border-primary-500 hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
               <div className="flex justify-between items-center mb-2">
-                <span className="font-semibold text-gray-800 dark:text-gray-200">
+                <motion.span 
+                  className="font-semibold text-gray-800 dark:text-gray-200"
+                  whileHover={{ scale: 1.1, color: '#0ea5e9' }}
+                >
                   {skill.name}
-                </span>
-                <span className="text-primary-500 font-bold">{skill.level}%</span>
+                </motion.span>
+                <motion.span 
+                  className="text-primary-500 font-bold"
+                  whileHover={{ scale: 1.2 }}
+                >
+                  {skill.level}%
+                </motion.span>
               </div>
               
               <div className="h-3 bg-gray-200 dark:bg-dark-light rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={inView ? { width: `${skill.level}%` } : {}}
+                  whileHover={{ width: '100%' }}
                   transition={{ duration: 1, delay: index * 0.1 + 0.3, ease: 'easeOut' }}
                   className="h-full bg-gradient-to-r from-primary-500 via-purple-500 to-pink-500 rounded-full relative"
                 >

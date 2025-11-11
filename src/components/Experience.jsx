@@ -50,16 +50,16 @@ const Experience = ({ data }) => {
                   <div className={index % 2 === 0 ? 'md:col-start-1' : 'md:col-start-2'}>
                     <motion.div
                       whileHover={{ scale: 1.02, y: -5 }}
-                      className="card p-6 h-full"
+                      className={`card p-6 h-full ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}
                     >
-                      <div className="flex items-center space-x-2 text-primary-500 mb-3">
+                      <div className={`flex items-center space-x-2 text-primary-500 mb-3 ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
                         <FiCalendar />
                         <span className="font-semibold">{exp.duration}</span>
                       </div>
                       
                       <h3 className="text-2xl font-bold mb-2">{exp.position}</h3>
                       
-                      <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 mb-4">
+                      <div className={`flex items-center space-x-2 text-gray-600 dark:text-gray-400 mb-4 ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
                         <FiBriefcase size={16} />
                         <span className="font-medium">{exp.company}</span>
                       </div>
