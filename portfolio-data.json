@@ -102,6 +102,50 @@
     }
   ],
 
+  "achievements": [
+    {
+      "title": "Java Programming Champion",
+      "organization": "PLV ITlympics",
+      "year": "2022",
+      "description": "Won 1st place for the Java category after excelling in machine problems"
+    },
+    {
+      "title": "C# .NET Programming 1st Runner-Up",
+      "organization": "PLV ITlympics",
+      "year": "2023",
+      "description": "Won 1st Runner-Up for the C# .NET category demonstrating strong coding skills"
+    },
+    {
+      "title": "Consistent Dean's Lister",
+      "organization": "PLV BSIT Program",
+      "year": "2022-2025",
+      "description": "Dean's Lister for outstanding academic performance"
+    },
+    {
+      "title": "UMak IT Olympics Representative",
+      "organization": "University of Makati",
+      "year": "2023-2025",
+      "description": "Represented PLV in inter-college coding competitions such as C#. NET, Java, and Linux Administration at UMak"
+    }
+  ],
+
+  "currentlyLearning": [
+    "Advanced React Patterns & Next.js 14",
+    "Docker & Container Orchestration",
+    "AI/ML Integration with Python",
+    "AWS Cloud Services",
+    "Data Visualization with Chart.js"
+  ],
+
+  "techStack": {
+    "languages": ["JavaScript", "TypeScript", "Python", "SQL"],
+    "frontend": ["React", "Next.js", "Tailwind CSS", "HTML/CSS"],
+    "backend": ["Node.js", "Express", "PostgreSQL", "REST APIs"],
+    "tools": ["Git", "GitHub", "VS Code", "Postman"],
+    "automation": ["n8n", "Zapier", "GoHighLevel"],
+    "cms": ["WordPress", "Elementor", "Shopify"]
+  },
+
   "experience": [
     {
       "position": "Backend Developer Intern",
