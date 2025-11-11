@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FiAward, FiTrophy, FiStar } from 'react-icons/fi'
+import { FiAward, FiStar } from 'react-icons/fi'
 
 const Achievements = ({ data }) => {
   const { achievements } = data
@@ -9,7 +9,7 @@ const Achievements = ({ data }) => {
     threshold: 0.1,
   })
 
-  const icons = [FiTrophy, FiAward, FiStar]
+  const icons = [FiAward, FiStar, FiAward]
 
   return (
     <section id="achievements" className="section-container">
