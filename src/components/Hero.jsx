@@ -75,9 +75,9 @@ const Hero = ({ data }) => {
               <FiMail />
               <span>Get In Touch</span>
             </a>
-            <a href={personal.resume} className="btn-secondary inline-flex items-center space-x-2">
+            <a href={personal.resume} download className="btn-secondary inline-flex items-center space-x-2">
               <FiDownload />
-              <span>Download CV</span>
+              <span>Download Resume</span>
             </a>
           </motion.div>
 

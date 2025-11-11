@@ -6,13 +6,13 @@
     "location": "Valenzuela City, Philippines",
     "email": "jeremiahrosales.0516@gmail.com",
     "profileImage": "/ROSALES_PHOTO.png",
-    "resume": "#"
+    "resume": "/RESUME_ROSALES.pdf"
   },
 
   "social": [
-    { "name": "GitHub", "url": "https://github.com/yourusername" },
-    { "name": "LinkedIn", "url": "https://linkedin.com/in/yourusername" },
-    { "name": "Twitter", "url": "https://twitter.com/yourusername" }
+    { "name": "GitHub", "url": "https://github.com/mayacadia" },
+    { "name": "LinkedIn", "url": "https://www.linkedin.com/in/jeremiah-christian-rosales-0768991a1" }
+    
   ],
 
   "stats": {
