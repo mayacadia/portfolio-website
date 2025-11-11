@@ -1,0 +1,110 @@
+{
+  "personal": {
+    "name": "Jeremiah Rosales",
+    "title": "Software Developer",
+    "tagline": "I love building websites and focusing on back-end projects.",
+    "location": "Valenzuela City, Philippines",
+    "email": "jeremiahrosales.0516@gmail.com",
+    "profileImage": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80&auto=format&fit=crop",
+    "resume": "#"
+  },
+
+  "social": [
+    { "name": "GitHub", "url": "https://github.com/yourusername" },
+    { "name": "LinkedIn", "url": "https://linkedin.com/in/yourusername" },
+    { "name": "Twitter", "url": "https://twitter.com/yourusername" }
+  ],
+
+  "stats": {
+    "yearsExperience": "2+",
+    "projectsCompleted": "10+",
+    "clientsServed": "5+"
+  },
+
+  "about": {
+    "bio": [
+      "I'm a software developer with a passion for building user-centric products. I enjoy turning complex problems into elegant, accessible solutions.",
+      "My specialties include front-end frameworks, TypeScript, Node.js, and building reliable APIs and developer-friendly tooling."
+    ]
+  },
+
+  "education": [
+    {
+      "degree": "BSIT",
+      "institution": "Pamantasan ng Lungsod ng Valenzuela",
+      "years": "2022-2026"
+    }
+  ],
+
+  "skills": [
+    { "name": "JavaScript / TypeScript", "level": 90 },
+    { "name": "React / Next.js", "level": 85 },
+    { "name": "Node / Express", "level": 80 },
+    { "name": "UI & Design", "level": 75 },
+    { "name": "Python", "level": 70 },
+    { "name": "SQL / PostgreSQL", "level": 80 },
+    { "name": "Git & GitHub", "level": 85 },
+    { "name": "GoHighLevel / Zoho", "level": 95 },
+    { "name": "WordPress / Elementor", "level": 90 },
+    { "name": "n8n / Zapier", "level": 85 }
+  ],
+
+  "projects": [
+    {
+      "title": "AI-assisted Shift Analyzer and Payroll Generation",
+      "description": "A tool to analyze employee shifts and generate payroll automatically using AI.",
+      "detailedDescription": "Developed with Python and integrated with prediction models to process shift data and produce accurate payroll reports.",
+      "category": "web",
+      "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=60&auto=format&fit=crop",
+      "liveUrl": "#"
+     
+    },
+    {
+      "title": "WGY Travel Agency Website",
+      "description": "A landing page for a travel agency showcasing tours and booking options.",
+      "detailedDescription": "Built with WordPress and Elementor, featuring responsive design and SEO optimization.",
+      "category": "web",
+      "image": "blob:https://www.facebook.com/66eb7b3e-5713-4461-be26-ab33774583b6",
+      "liveUrl": "#",
+      "sourceUrl": "#"
+    },
+    {
+      "title": "LiLo Invoice Automation",
+      "description": "Website for automating invoice generation and management of LiLo, an employee time management app, subscriptions.",
+      "detailedDescription": "Used Node.js and Express to create a backend service that automates invoice creation based on user activity and subscription plans.",
+      "category": "mobile",
+      "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200&q=60&auto=format&fit=crop",
+      "liveUrl": "#",
+      "sourceUrl": "#"
+    },{
+      "title": "Philippine Post Office ID Application Dashboard",
+      "description": "Website for monitoring applications for Postal IDs in the Philippines.",
+      "detailedDescription": "Developed the backend with Node.js and Express and PostgreSQL to handle data analytics and status updates for users applying for Postal IDs.",
+      "category": "mobile",
+      "image": "blob:https://www.facebook.com/f7e159e9-60e6-4ef5-a56b-75d8f4eae3ea",
+      "liveUrl": "#",
+      "sourceUrl": "#"
+    }
+  ],
+
+  "experience": [
+    {
+      "position": "Backend Developer Intern",
+      "company": "Filmetrics Corporation",
+      "duration": "June '25 - October '25",
+      "description": "Developed the backend of applications using Node.js, Express, and PostgreSQL."
+    },
+    {
+      "position": "Automation Specialist",
+      "company": "Lion Sales Funnel LLC",
+      "duration": "2025 - Present",
+      "description": "Worked on GoHighLevel and n8n to automate business processes and improve efficiency for clients."
+    },
+    {
+      "position": "Freelance Web Developer",
+      "company": "Freelance",
+      "duration": "2023 - Present",
+      "description": "Built and maintained websites for various clients using WordPress, Elementor, and custom coding solutions."
+    }
+  ]
+}
