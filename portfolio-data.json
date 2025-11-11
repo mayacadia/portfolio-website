@@ -59,8 +59,8 @@
   "projects": [
     {
       "title": "AI-assisted Shift Analyzer and Payroll Generation",
-      "description": "A tool to analyze employee shifts and generate payroll automatically using AI.",
-      "detailedDescription": "Developed with Python and integrated with prediction models to process shift data and produce accurate payroll reports.",
+      "description": "A tool to analyze employee shifts and generate payroll automatically using AI and macros.",
+      "detailedDescription": "Developed with Python and VBA and integrated with prediction models to process shift data and produce accurate payroll reports.",
       "category": "web",
       "image": "/ai-assisted-shift.jpg",
       "liveUrl": "#"
@@ -97,6 +97,14 @@
       "detailedDescription": "Developed with WordPresss and Shopify for easy designing and updating, as well as responsive design.",
       "category": "web",
       "image": "/organic-pup.png",
+      "liveUrl": "#",
+      "sourceUrl": "#"
+    },{
+      "title": "ValSafe Incident Reporting and Management System",
+      "description": "A Capstone Project for Valenzuela City resident to report their incidents online.",
+      "detailedDescription": "Developed the diagrams and detailed documentation for the project.",
+      "category": "web",
+      "image": "/valsafe.png",
       "liveUrl": "#",
       "sourceUrl": "#"
     }
@@ -151,19 +159,22 @@
       "position": "Backend Developer Intern",
       "company": "Filmetrics Corporation",
       "duration": "June '25 - October '25",
-      "description": "Developed the backend of applications using Node.js, Express, and PostgreSQL."
+      "description": "Developed the backend of applications using Node.js, Express, and PostgreSQL.",
+      "logo": "/filmetrics.png"
     },
     {
       "position": "Automation Specialist",
       "company": "Lion Sales Funnel LLC",
       "duration": "2025 - Present",
-      "description": "Worked on GoHighLevel and n8n to automate business processes and improve efficiency for clients."
+      "description": "Worked on GoHighLevel and n8n to automate business processes and improve efficiency for clients.",
+      "logo": "/lion sales.png"
     },
     {
       "position": "Freelance Web Developer",
       "company": "Freelance",
       "duration": "2023 - Present",
-      "description": "Built and maintained websites for various clients using WordPress, Elementor, and custom coding solutions."
+      "description": "Built and maintained websites for various clients using WordPress, Elementor, and custom coding solutions.",
+      "logo": "/wgy logo.png"
     }
   ]
 }

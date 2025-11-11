@@ -26,7 +26,17 @@ const Achievements = ({ data }) => {
           <p className="section-subtitle">Recognition and accomplishments</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className={`grid gap-8 max-w-6xl mx-auto ${
+          achievements.length === 1 
+            ? 'md:grid-cols-1 place-items-center' 
+            : achievements.length === 2 
+            ? 'md:grid-cols-2 place-items-center' 
+            : achievements.length === 4
+            ? 'md:grid-cols-3 justify-items-center'
+            : achievements.length === 5
+            ? 'md:grid-cols-6'
+            : 'md:grid-cols-3'
+        }`}>
           {achievements.map((achievement, index) => {
             const Icon = icons[index % icons.length]
             return (
@@ -36,7 +46,14 @@ const Achievements = ({ data }) => {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 whileHover={{ y: -10, scale: 1.03 }}
-                className="card p-6 text-center"
+                className={`card p-6 text-center ${
+                  achievements.length === 1 ? 'max-w-md' : 
+                  achievements.length === 2 ? 'max-w-sm' : 
+                  achievements.length === 4 && index === 3 ? 'md:col-start-2' : 
+                  achievements.length === 5 && index < 3 ? 'md:col-span-2' :
+                  achievements.length === 5 && index === 3 ? 'md:col-start-2 md:col-span-2' :
+                  achievements.length === 5 && index === 4 ? 'md:col-span-2' : ''
+                }`}
               >
                 <motion.div
                   whileHover={{ rotate: 360, scale: 1.2 }}

@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { useState } from 'react'
 import { SiJavascript, SiTypescript, SiPython, SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiPostgresql, SiTailwindcss, SiGit, SiGithub, SiWordpress, SiDocker, SiAmazonaws, SiGraphql } from 'react-icons/si'
-import { FiCode, FiServer, FiTool } from 'react-icons/fi'
+import { FiCode, FiServer, FiTool, FiBookOpen, FiZap } from 'react-icons/fi'
 
 const Skills = ({ data }) => {
   const { skills, techStack, currentlyLearning } = data
@@ -9,6 +10,7 @@ const Skills = ({ data }) => {
     triggerOnce: true,
     threshold: 0.1,
   })
+  const [hoveredLearning, setHoveredLearning] = useState(null)
 
   // Icon mapping for tech stack
   const techIcons = {
@@ -293,30 +295,132 @@ const Skills = ({ data }) => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 1.2 }}
-          className="mt-16 card p-8 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-primary-900/20 dark:to-purple-900/20"
+          className="mt-16 card p-8 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-primary-900/20 dark:to-purple-900/20 border-2 border-primary-200 dark:border-primary-800"
         >
-          <div className="text-center mb-6">
-            <h3 className="text-2xl font-bold mb-2">
-              📚 Currently Learning
-            </h3>
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <FiBookOpen className="text-3xl text-primary-500" />
+              <h3 className="text-2xl font-bold">
+                Currently Learning
+              </h3>
+              <FiZap className="text-3xl text-yellow-500" />
+            </div>
             <p className="text-gray-600 dark:text-gray-400">
               Always expanding my knowledge and staying up-to-date
             </p>
           </div>
           
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-4">
             {currentlyLearning.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 1.3 + index * 0.1 }}
-                whileHover={{ scale: 1.1, y: -3 }}
-                className="px-4 py-2 bg-white dark:bg-dark-lighter rounded-full border-2 border-primary-200 dark:border-primary-800 shadow-sm hover:shadow-md transition-all cursor-default"
+                initial={{ opacity: 0, scale: 0.8, rotateY: -180 }}
+                animate={inView ? { opacity: 1, scale: 1, rotateY: 0 } : {}}
+                transition={{ 
+                  delay: 1.3 + index * 0.1,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 15
+                }}
+                whileHover={{ 
+                  scale: 1.15, 
+                  y: -8,
+                  rotate: [0, -2, 2, 0],
+                  transition: { duration: 0.3 }
+                }}
+                whileTap={{ scale: 0.95 }}
+                onHoverStart={() => setHoveredLearning(index)}
+                onHoverEnd={() => setHoveredLearning(null)}
+                className="relative group"
               >
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                  {item}
-                </span>
+                {/* Glow effect on hover */}
+                <motion.div
+                  className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-400 via-purple-400 to-pink-400 blur-md"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: hoveredLearning === index ? 0.6 : 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                
+                {/* Main pill */}
+                <div className="relative px-6 py-3 bg-white dark:bg-dark-lighter rounded-full border-2 border-primary-300 dark:border-primary-700 shadow-md hover:shadow-xl transition-all cursor-pointer overflow-hidden">
+                  {/* Animated gradient background */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-primary-500/10 via-purple-500/10 to-pink-500/10"
+                    animate={{
+                      x: hoveredLearning === index ? ['-100%', '100%'] : '0%',
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: hoveredLearning === index ? Infinity : 0,
+                      ease: "linear"
+                    }}
+                  />
+                  
+                  {/* Progress bar at bottom */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-primary-500 via-purple-500 to-pink-500"
+                    initial={{ width: '0%' }}
+                    animate={{ 
+                      width: hoveredLearning === index ? '100%' : '0%',
+                    }}
+                    transition={{ duration: 0.5 }}
+                  />
+                  
+                  {/* Text with sparkle effect */}
+                  <div className="relative flex items-center gap-2">
+                    <motion.span
+                      animate={{
+                        rotate: hoveredLearning === index ? 360 : 0,
+                      }}
+                      transition={{ duration: 0.5 }}
+                      className="text-lg"
+                    >
+                      ✨
+                    </motion.span>
+                    <span className="text-sm font-semibold bg-gradient-to-r from-gray-700 to-gray-900 dark:from-gray-200 dark:to-gray-400 bg-clip-text text-transparent">
+                      {item}
+                    </span>
+                    <motion.span
+                      animate={{
+                        scale: hoveredLearning === index ? [1, 1.3, 1] : 1,
+                      }}
+                      transition={{ 
+                        duration: 0.5,
+                        repeat: hoveredLearning === index ? Infinity : 0,
+                      }}
+                      className="text-lg"
+                    >
+                      🚀
+                    </motion.span>
+                  </div>
+
+                  {/* Floating particles on hover */}
+                  {hoveredLearning === index && (
+                    <>
+                      {[...Array(3)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute w-1 h-1 bg-primary-500 rounded-full"
+                          initial={{ 
+                            x: '50%', 
+                            y: '50%',
+                            opacity: 1 
+                          }}
+                          animate={{
+                            x: `${50 + (i - 1) * 30}%`,
+                            y: `${-50 + i * 20}%`,
+                            opacity: 0,
+                          }}
+                          transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            delay: i * 0.2,
+                          }}
+                        />
+                      ))}
+                    </>
+                  )}
+                </div>
               </motion.div>
             ))}
           </div>

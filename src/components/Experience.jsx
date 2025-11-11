@@ -37,16 +37,14 @@ const Experience = ({ data }) => {
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className={`relative grid md:grid-cols-2 gap-8 ${
-                    index % 2 === 0 ? '' : 'md:text-right'
-                  }`}
+                  className="relative grid md:grid-cols-2 gap-8"
                 >
                   {/* Timeline Dot */}
                   <div className="hidden md:block absolute left-1/2 top-6 transform -translate-x-1/2 w-4 h-4 bg-primary-500 rounded-full border-4 border-white dark:border-dark z-10">
                     <div className="absolute inset-0 bg-primary-500 rounded-full animate-ping opacity-75"></div>
                   </div>
 
-                  {/* Content */}
+                  {/* Content - Left side for even, right side for odd */}
                   <div className={index % 2 === 0 ? 'md:col-start-1' : 'md:col-start-2'}>
                     <motion.div
                       whileHover={{ scale: 1.02, y: -5 }}
@@ -67,6 +65,21 @@ const Experience = ({ data }) => {
                       <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                         {exp.description}
                       </p>
+                    </motion.div>
+                  </div>
+
+                  {/* Image - Right side for even, left side for odd */}
+                  <div className={index % 2 === 0 ? 'md:col-start-2' : 'md:col-start-1 md:row-start-1'}>
+                    <motion.div
+                      whileHover={{ scale: 1.05, rotate: 2 }}
+                      transition={{ duration: 0.3 }}
+                      className="h-full flex items-center justify-center p-6 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-900 dark:to-black border border-gray-700 dark:border-gray-800 shadow-xl"
+                    >
+                      <img
+                        src={exp.logo}
+                        alt={`${exp.company} logo`}
+                        className="max-w-full max-h-48 object-contain filter drop-shadow-2xl"
+                      />
                     </motion.div>
                   </div>
                 </motion.div>

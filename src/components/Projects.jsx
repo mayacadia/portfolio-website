@@ -11,7 +11,7 @@ const Projects = ({ data }) => {
     threshold: 0.1,
   })
 
-  const categories = ['all', ...new Set(projects.map(p => p.category))]
+  const categories = [...new Set(projects.map(p => p.category))].filter(cat => cat.toLowerCase() !== 'web')
   
   const filteredProjects = filter === 'all' 
     ? projects 
@@ -30,25 +30,6 @@ const Projects = ({ data }) => {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="section-subtitle">Some of my recent work</p>
-        </div>
-
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <motion.button
-              key={category}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setFilter(category)}
-              className={`px-6 py-2 rounded-lg font-semibold capitalize transition-all ${
-                filter === category
-                  ? 'bg-gradient-to-r from-primary-500 to-purple-600 text-white shadow-lg'
-                  : 'bg-gray-200 dark:bg-dark-light text-gray-700 dark:text-gray-300'
-              }`}
-            >
-              {category}
-            </motion.button>
-          ))}
         </div>
 
         {/* Projects Grid */}
