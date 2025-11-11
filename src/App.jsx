@@ -11,7 +11,6 @@ import Achievements from './components/Achievements'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
-import Jazz from './pages/Jazz'
 import portfolioData from '../portfolio-data.json'
 
 function App() {
@@ -34,9 +33,6 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Jazz's special page */}
-        <Route path="/jazz" element={<Jazz />} />
-        
         {/* Main portfolio */}
         <Route path="/" element={
           <div className="min-h-screen">
