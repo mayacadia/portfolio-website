@@ -12,6 +12,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import ScrollProgress from './components/ScrollProgress'
+import SEO from './components/SEO'
 import NotFound from './pages/NotFound'
 import portfolioData from '../portfolio-data.json'
 
@@ -38,14 +39,16 @@ function App() {
         {/* Main portfolio */}
         <Route path="/" element={
           <div className="min-h-screen">
+            <SEO data={portfolioData} />
             <ScrollProgress />
             <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} data={portfolioData} />
             <Hero data={portfolioData} />
             <About data={portfolioData} />
             <Skills data={portfolioData} />
             <Experience data={portfolioData} />
-            <Achievements data={portfolioData} />
             <Projects data={portfolioData} />
+            <Achievements data={portfolioData} />
+            
             <Contact data={portfolioData} />
             <Footer data={portfolioData} />
             <ScrollToTop />

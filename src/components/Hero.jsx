@@ -11,6 +11,7 @@ const Hero = ({ data }) => {
     projects: 0,
     clients: 0
   })
+  const [isFlipped, setIsFlipped] = useState(false)
 
   // Animated counter effect
   useEffect(() => {
@@ -202,13 +203,47 @@ const Hero = ({ data }) => {
               ease: "easeInOut",
             }}
             className="relative w-80 h-80 md:w-96 md:h-96 mx-auto"
+            style={{ perspective: '1000px' }}
+            onMouseEnter={() => setIsFlipped(true)}
+            onMouseLeave={() => setIsFlipped(false)}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-500 via-purple-500 to-pink-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-            <LazyImage
-              src={personal.profileImage}
-              alt={personal.name}
-              className="relative w-full h-full object-cover rounded-full border-4 border-white dark:border-dark-lighter shadow-2xl"
-            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-500 via-red-500 to-pink-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
+            
+            {/* Flip Container */}
+            <motion.div
+              className="relative w-full h-full"
+              style={{ transformStyle: 'preserve-3d' }}
+              animate={{ rotateY: isFlipped ? 180 : 0 }}
+              transition={{ duration: 0.6, ease: 'easeInOut' }}
+            >
+              {/* Front - Profile Photo */}
+              <div
+                className="absolute inset-0 rounded-full overflow-hidden border-4 border-white dark:border-dark-lighter shadow-2xl"
+                style={{ backfaceVisibility: 'hidden' }}
+              >
+                <LazyImage
+                  src={personal.profileImage}
+                  alt={personal.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Back - Logo */}
+              <div
+                className="absolute inset-0 rounded-full overflow-hidden border-4 border-white dark:border-dark-lighter shadow-2xl flex items-center justify-center"
+                style={{ 
+                  backfaceVisibility: 'hidden',
+                  transform: 'rotateY(180deg)',
+                  backgroundColor: '#041434'
+                }}
+              >
+                <img
+                  src="/logo.png"
+                  alt="Logo"
+                  className="w-3/4 h-3/4 object-contain drop-shadow-2xl"
+                />
+              </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>

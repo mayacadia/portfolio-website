@@ -65,7 +65,7 @@ const Skills = ({ data }) => {
               <div className="flex justify-between items-center mb-2">
                 <motion.span 
                   className="font-semibold text-gray-800 dark:text-gray-200"
-                  whileHover={{ scale: 1.1, color: '#0ea5e9' }}
+                  whileHover={{ scale: 1.1, color: '#f97316' }}
                 >
                   {skill.name}
                 </motion.span>
@@ -83,7 +83,7 @@ const Skills = ({ data }) => {
                   animate={inView ? { width: `${skill.level}%` } : {}}
                   whileHover={{ width: '100%' }}
                   transition={{ duration: 1, delay: index * 0.1 + 0.3, ease: 'easeOut' }}
-                  className="h-full bg-gradient-to-r from-primary-500 via-purple-500 to-pink-500 rounded-full relative"
+                  className="h-full bg-gradient-to-r from-primary-500 via-red-500 to-pink-500 rounded-full relative"
                 >
                   <motion.div
                     animate={{ x: [0, 20, 0] }}
