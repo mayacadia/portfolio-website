@@ -1,8 +1,50 @@
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { TypeAnimation } from 'react-type-animation'
 import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiMapPin, FiDownload } from 'react-icons/fi'
+import LazyImage from './LazyImage'
 
 const Hero = ({ data }) => {
   const { personal, social, stats } = data
+  const [counters, setCounters] = useState({
+    years: 0,
+    projects: 0,
+    clients: 0
+  })
+
+  // Animated counter effect
+  useEffect(() => {
+    const targetYears = parseInt(stats.yearsExperience)
+    const targetProjects = parseInt(stats.projectsCompleted)
+    const targetClients = parseInt(stats.clientsServed)
+
+    const duration = 2000 // 2 seconds
+    const steps = 60
+    const interval = duration / steps
+
+    let currentStep = 0
+    const timer = setInterval(() => {
+      currentStep++
+      const progress = currentStep / steps
+
+      setCounters({
+        years: Math.floor(targetYears * progress),
+        projects: Math.floor(targetProjects * progress),
+        clients: Math.floor(targetClients * progress)
+      })
+
+      if (currentStep >= steps) {
+        setCounters({
+          years: targetYears,
+          projects: targetProjects,
+          clients: targetClients
+        })
+        clearInterval(timer)
+      }
+    }, interval)
+
+    return () => clearInterval(timer)
+  }, [stats])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -52,8 +94,22 @@ const Hero = ({ data }) => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display">
               {personal.name}
             </h1>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold gradient-text">
-              {personal.title}
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold gradient-text min-h-[4rem]">
+              <TypeAnimation
+                sequence={[
+                  'Software Developer',
+                  2000,
+                  'Backend Developer',
+                  2000,
+                  'Automation Specialist',
+                  2000,
+                  'Full Stack Engineer',
+                  2000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+              />
             </h2>
           </motion.div>
 
@@ -61,7 +117,14 @@ const Hero = ({ data }) => {
             variants={itemVariants}
             className="text-xl text-gray-600 dark:text-gray-400 max-w-xl"
           >
-            {personal.tagline}
+            <TypeAnimation
+              sequence={[
+                personal.tagline,
+              ]}
+              wrapper="span"
+              speed={70}
+              cursor={false}
+            />
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
@@ -104,15 +167,21 @@ const Hero = ({ data }) => {
           {/* Stats */}
           <motion.div variants={itemVariants} className="grid grid-cols-3 gap-6 pt-8">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold gradient-text">{stats.yearsExperience}</div>
+              <div className="text-3xl md:text-4xl font-bold gradient-text">
+                {counters.years}+
+              </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold gradient-text">{stats.projectsCompleted}</div>
+              <div className="text-3xl md:text-4xl font-bold gradient-text">
+                {counters.projects}+
+              </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Projects Done</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold gradient-text">{stats.clientsServed}</div>
+              <div className="text-3xl md:text-4xl font-bold gradient-text">
+                {counters.clients}+
+              </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Happy Clients</div>
             </div>
           </motion.div>
@@ -135,7 +204,7 @@ const Hero = ({ data }) => {
             className="relative w-80 h-80 md:w-96 md:h-96 mx-auto"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-primary-500 via-purple-500 to-pink-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-            <img
+            <LazyImage
               src={personal.profileImage}
               alt={personal.name}
               className="relative w-full h-full object-cover rounded-full border-4 border-white dark:border-dark-lighter shadow-2xl"

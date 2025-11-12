@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FiExternalLink, FiGithub } from 'react-icons/fi'
+import LazyImage from './LazyImage'
 
 const Projects = ({ data }) => {
   const { projects } = data
@@ -50,7 +51,7 @@ const Projects = ({ data }) => {
             >
               {/* Project Image */}
               <div className="relative h-64 overflow-hidden">
-                <img
+                <LazyImage
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -99,6 +100,21 @@ const Projects = ({ data }) => {
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
                   {project.description}
                 </p>
+
+                {/* Technology Tags */}
+                {project.technologies && project.technologies.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, techIndex) => (
+                      <motion.span
+                        key={techIndex}
+                        whileHover={{ scale: 1.1 }}
+                        className="text-xs px-2 py-1 bg-gray-100 dark:bg-dark-light text-gray-700 dark:text-gray-300 rounded-md border border-gray-200 dark:border-gray-700"
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                  </div>
+                )}
 
                 {project.detailedDescription && (
                   <p className="text-sm text-gray-500 dark:text-gray-500 border-t dark:border-gray-700 pt-4">

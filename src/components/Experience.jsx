@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FiBriefcase, FiCalendar } from 'react-icons/fi'
+import LazyImage from './LazyImage'
 
 const Experience = ({ data }) => {
   const { experience } = data
@@ -75,7 +76,7 @@ const Experience = ({ data }) => {
                       transition={{ duration: 0.3 }}
                       className="h-full flex items-center justify-center p-6 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-900 dark:to-black border border-gray-700 dark:border-gray-800 shadow-xl"
                     >
-                      <img
+                      <LazyImage
                         src={exp.logo}
                         alt={`${exp.company} logo`}
                         className="max-w-full max-h-48 object-contain filter drop-shadow-2xl"

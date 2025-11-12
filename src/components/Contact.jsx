@@ -1,16 +1,19 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FiMail, FiMapPin, FiSend } from 'react-icons/fi'
+import emailjs from '@emailjs/browser'
 
 const Contact = ({ data }) => {
   const { personal } = data
+  const form = useRef()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   })
   const [status, setStatus] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -26,12 +29,31 @@ const Contact = ({ data }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // For demo purposes - in production, integrate with a backend or email service
-    setStatus('success')
-    setTimeout(() => {
-      setStatus('')
-      setFormData({ name: '', email: '', message: '' })
-    }, 3000)
+    setLoading(true)
+    setStatus('')
+
+    // EmailJS configuration from environment variables
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+    emailjs
+      .sendForm(serviceID, templateID, form.current, publicKey)
+      .then(
+        (result) => {
+          console.log('Email sent successfully:', result.text)
+          setStatus('success')
+          setFormData({ name: '', email: '', message: '' })
+          setLoading(false)
+          setTimeout(() => setStatus(''), 5000)
+        },
+        (error) => {
+          console.error('Email sending failed:', error.text)
+          setStatus('error')
+          setLoading(false)
+          setTimeout(() => setStatus(''), 5000)
+        }
+      )
   }
 
   return (
@@ -113,7 +135,7 @@ const Contact = ({ data }) => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <form onSubmit={handleSubmit} className="card p-8 space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="card p-8 space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold mb-2">
                   Your Name
@@ -166,9 +188,10 @@ const Contact = ({ data }) => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full btn-primary flex items-center justify-center space-x-2"
+                disabled={loading}
+                className="w-full btn-primary flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span>Send Message</span>
+                <span>{loading ? 'Sending...' : 'Send Message'}</span>
                 <FiSend />
               </motion.button>
 
@@ -178,7 +201,17 @@ const Contact = ({ data }) => {
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-lg text-center"
                 >
-                  Message sent successfully! I'll get back to you soon.
+                  ✅ Message sent successfully! I'll get back to you soon.
+                </motion.div>
+              )}
+
+              {status === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-lg text-center"
+                >
+                  ❌ Failed to send message. Please try again or email me directly.
                 </motion.div>
               )}
             </form>

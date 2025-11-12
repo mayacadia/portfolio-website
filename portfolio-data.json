@@ -63,7 +63,8 @@
       "detailedDescription": "Developed with Python and VBA and integrated with prediction models to process shift data and produce accurate payroll reports.",
       "category": "web",
       "image": "/ai-assisted-shift.jpg",
-      "liveUrl": "#"
+      "liveUrl": "#",
+      "technologies": ["Python", "VBA", "AI/ML", "Excel"]
      
     },
     {
@@ -73,7 +74,8 @@
       "category": "web",
       "image": "/wgy-website.png",
       "liveUrl": "#",
-      "sourceUrl": "#"
+      "sourceUrl": "#",
+      "technologies": ["WordPress", "Elementor", "CSS", "SEO"]
     },
     {
       "title": "LiLo Invoice Automation",
@@ -82,7 +84,8 @@
       "category": "web",
       "image": "/lilo_logo.png",
       "liveUrl": "#",
-      "sourceUrl": "#"
+      "sourceUrl": "#",
+      "technologies": ["Node.js", "Express", "PostgreSQL", "REST API"]
     },{
       "title": "Philippine Post Office ID Application Dashboard",
       "description": "Website for monitoring applications for Postal IDs in the Philippines.",
@@ -90,7 +93,8 @@
       "category": "web",
       "image": "/phlpost-logo.jpg",
       "liveUrl": "#",
-      "sourceUrl": "#"
+      "sourceUrl": "#",
+      "technologies": ["Node.js", "Express", "PostgreSQL", "Analytics"]
     },{
       "title": "Organic Pup Inc Website",
       "description": "An ongoing e-commerce website for a dog food startup",
@@ -98,7 +102,8 @@
       "category": "web",
       "image": "/organic-pup.png",
       "liveUrl": "#",
-      "sourceUrl": "#"
+      "sourceUrl": "#",
+      "technologies": ["WordPress", "Shopify", "E-commerce"]
     },{
       "title": "ValSafe Incident Reporting and Management System",
       "description": "A Capstone Project for Valenzuela City resident to report their incidents online.",
@@ -106,7 +111,8 @@
       "category": "web",
       "image": "/valsafe.png",
       "liveUrl": "#",
-      "sourceUrl": "#"
+      "sourceUrl": "#",
+      "technologies": ["System Design", "Documentation", "UML"]
     },{
       "title": "GoHighLevel Workflows",
       "description": "Complex automation workflows for various clients using GoHighLevel.",
@@ -114,7 +120,8 @@
       "category": "web",
       "image": "/highlevel.png",
       "liveUrl": "#",
-      "sourceUrl": "#"
+      "sourceUrl": "#",
+      "technologies": ["GoHighLevel", "Automation", "CRM"]
     },{
       "title": "n8n Automations",
       "description": "Created n8n automation workflows to manage middleware and backend processes for clients.",
@@ -122,7 +129,8 @@
       "category": "web",
       "image": "/n8n.png",
       "liveUrl": "#",
-      "sourceUrl": "#"
+      "sourceUrl": "#",
+      "technologies": ["n8n", "API Integration", "Automation"]
     }
   ],
 
